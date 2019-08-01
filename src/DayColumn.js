@@ -196,6 +196,7 @@ class DayColumn extends React.Component {
     })
 
     return styledEvents.map(({ event, style }, idx) => {
+      const event_id = accessors.id(event)
       let end = accessors.end(event)
       let start = accessors.start(event)
       let format = 'eventTimeRangeFormat'
@@ -213,7 +214,7 @@ class DayColumn extends React.Component {
       let continuesEarlier = startsBeforeDay || slotMetrics.startsBefore(start)
       let continuesLater = startsAfterDay || slotMetrics.startsAfter(end)
 
-      const key = event.id ? event.id : `evt_${idx}`
+      const key = event_id ? event_id : `evt_${idx}`
 
       return (
         <TimeGridEvent
