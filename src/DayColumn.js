@@ -213,12 +213,14 @@ class DayColumn extends React.Component {
       let continuesEarlier = startsBeforeDay || slotMetrics.startsBefore(start)
       let continuesLater = startsAfterDay || slotMetrics.startsAfter(end)
 
+      const key = event.id ? event.id : `evt_${idx}`
+
       return (
         <TimeGridEvent
           style={style}
           event={event}
           label={label}
-          key={'evt_' + idx}
+          key={key}
           getters={getters}
           rtl={rtl}
           components={components}
